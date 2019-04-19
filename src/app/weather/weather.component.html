@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<head>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="  crossorigin="anonymous"></script>
+</head>
+<html>
+  <body>
+      <div  style="text-align:center">
+          <form class="form">
+            <input type="text" id="inputField" name="cityname"class="form__field" style="color: black"placeholder="Enter City Name" [(ngModel)] = "_city"/>
+            <button type="button" class="btn btn--primary btn--inside uppercase" (click)='getInfo()'>Search</button>
+          </form>
+        </div> 
+   <div></div>
+    <div  role="main" *ngIf='show' style="margin-left:20em;margin-right:17em" >
+      <div id="openweathermap-widget-15">
+        <div class="col-md-4">
+            <div class="location">{{cityName}} {{country}}   <img src={{icon}} style="width: 75px;height: 75px; "/> </div> 
+         
+          </div>
+    
+     <div class="date" style=" color: #444;font-size: medium;">{{date | date:'EEEE'}} </div>
+ <div class="col-md-4" >
+     <div class="current">
+        <div class="visual" style="width:25em">
+           
+            <div class="temp" style="  color: #444; height:85px">{{temper}} </div>
+            <div class="scale" style="  color: #444;">°C</div>
+                
+          </div>
+        <div class="description" style="width:30em">
+          <div class="desc" style="color: rgb(169, 169, 169); font-size: medium;">{{desc}}</div>
+          <div class="humidity">{{huminity}}%</div>
+          <div class="wind">{{wind}} mph {{degree}}°</div>
+          <div class="pressure">{{pressure}}</div>
+          
+        </div>  
+
+     </div></div>
+        </div>
+     <div class="seven-day">
+        <div class="seven-day-fc">
+            <div class="date"style="color: #636262;">Today</div>
+            
+            <div class="icon thunder">
+             <img src={{icon}}/>
+            </div>
+            
+            <div class="seven-day-temp">
+                <div class="temp-high" style="color:rgb(187, 179, 179)">{{tempHigh}}°C</div>
+                <div class="temp-low" style="color: rgb(187, 179, 179)">{{tempLow}}°C</div>
+            </div>
+            <div class="seven-day-description">
+                <div class="humidity">{{huminity}}%</div>
+                <div class="wind">{{wind}} mph {{degree}}°</div>  
+              </div>  
+        </div>
+        <div class="seven-day-fc">
+            <div class="date"style="color:rgb(95, 87, 87);">{{date1 | date:'EEEE'}}</div>
+            <div class="icon sunny">
+                <img src={{icon1}}/>
+            </div>
+          
+            <div class="seven-day-temp">
+                <div class="temp-high"style="color:rgb(187, 179, 179)">{{tempHigh1}}°C</div>
+                <div class="temp-low"style="color: rgb(187, 179, 179)">{{tempLow1}}°C</div>
+            </div>
+            <div class="seven-day-description">
+                <div class="humidity">{{huminity1}}%</div>
+              <div class="wind">{{wind1}} mph {{degree1}}°</div>  
+              </div>  
+        </div>
+        <div class="seven-day-fc">
+            <div class="date" style="   color: rgb(165, 163, 163);">{{date2 | date: 'EEEE'}}</div>
+            <div class="icon sunny">
+                <img src={{icon2}}/>
+            </div>
+     
+            <div class="seven-day-temp">
+                <div class="temp-high"style="color:rgb(187, 179, 179)">{{tempHigh2}}°C</div>
+                <div class="temp-low"style="color:rgb(187, 179, 179)">{{tempLow2}}°C</div>
+            </div>
+            <div class="seven-day-description">
+                <div class="humidity">{{huminity2}}%</div>
+                <div class="wind">{{wind2}} mph {{degree2}}°</div>  
+              </div>  
+        </div>
+        <div class="seven-day-fc">
+            <div class="date" style="  color: rgb(165, 163, 163);">{{date3 | date:'EEEE'}}</div>
+            <div class="icon pc">
+                <img src={{icon3}}/>
+            </div>
+    
+            <div class="seven-day-temp">
+                <div class="temp-high"style="color:rgb(187, 179, 179)">{{tempHigh3}}°C</div>
+                <div class="temp-high"style="color:rgb(187, 179, 179)">{{tempLow3}}°C</div>
+            </div>
+            <div class="seven-day-description">
+                <div class="humidity">{{huminity3}}%</div>
+                <div class="wind">{{wind3}} mph {{degree3}}°</div>  
+              </div>  
+
+        </div>
+        <div class="seven-day-fc">
+            <div class="date" style="  color: rgb(218, 214, 214);">{{date4 | date:'EEEE'}}</div>
+            <div class="icon pc">
+                <img src={{icon4}}/>
+            </div>
+    
+            <div class="seven-day-temp">
+                <div class="temp-high"style="color:rgb(187, 179, 179)">{{tempHigh4}}°C</div>
+                <div class="temp-high"style="color:rgb(187, 179, 179)">{{tempLow4}}°C</div>
+            </div>
+            <div class="seven-day-description">
+                <div class="humidity">{{huminity4}}%</div>
+                <div class="wind">{{wind4}} mph {{degree4}}°</div>  
+              </div>  
+
+        </div>
+
+
+
+     </div>
+    </div>
+<script src="./analytics.js"></script>
+<script src="./jquery.js"></script>
+      <script>
+
+
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='//www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','UA-52746336-1');ga('send','pageview');
+  var isCompleted = {};
+  function sampleCompleted(sampleName){
+    if (ga && !isCompleted.hasOwnProperty(sampleName)) {
+      ga('send', 'event', 'WebCentralSample', sampleName, 'completed'); 
+      isCompleted[sampleName] = true;
+    }
+  }
+
+    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = []; 
+    window.myWidgetParam.push({name:'{{cityName}}',
+    appid: '89ba401b5cd71598fcd7dd7060182730',
+    units: 'metric',
+    containerid: 'openweathermap-widget-15'});
+    (function() {var script = document.createElement('script');
+    script.async = true;script.charset = "utf-8";
+    script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(script, s);})();
+
+
+  </script>
+
+</body>   
+</html>
